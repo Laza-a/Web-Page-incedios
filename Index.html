@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navegador</title>
+    <link rel="stylesheet" href="">
+    <link rel="AppJs" href="app.js">
+</head>
+<body>
+    
+</body>
+</html>
+<h1>Navegador de Páginas</h1>
+
+<div>
+    <label for="url-input">URL:</label>
+    <input type="text" id="url-input" placeholder="https://ejemplo.com" value="https://www.google.com">
+    <button onclick="cargarPagina()">Cargar</button>
+    <button onclick="atras()">Atrás</button>
+    <button onclick="adelante()">Adelante</button>
+    <button onclick="recargar()">Recargar</button>
+</div>
+
+<div>
+    <label for="favoritos-select">Favoritos:</label>
+    <select id="favoritos-select">
+        <option value="">-- Selecciona un favorito --</option>
+        <option value="https://www.google.com">Google</option>
+        <option value="https://www.wikipedia.org">Wikipedia</option>
+        <option value="https://www.github.com">GitHub</option>
+        <option value="https://www.stackoverflow.com">Stack Overflow</option>
+    </select>
+    <button onclick="irAFavorito()">Ir a Favorito</button>
+    <button onclick="agregarFavorito()">Agregar a Favoritos</button>
+</div>
+
+<div>
+    <h2>Historial</h2>
+    <select id="historial-select" size="5">
+        <option value="">-- Historial vacío --</option>
+    </select>
+    <button onclick="irAlHistorial()">Ir a esta página</button>
+    <button onclick="limpiarHistorial()">Limpiar historial</button>
+</div>
+
+<div>
+    <h2>Información de la página</h2>
+    <p>
+        <strong>URL actual:</strong>
+        <span id="url-actual">Ninguna</span>
+    </p>
+    <p>
+        <strong>Título:</strong>
+        <span id="titulo-actual">Ninguno</span>
+    </p>
+    <p>
+        <strong>Estado:</strong>
+        <span id="estado">Listo</span>
+    </p>
+</div>
+
+<div>
+    <h2>Buscador</h2>
+    <input type="text" id="busqueda-input" placeholder="Buscar en Google">
+    <button onclick="buscar()">Buscar</button>
+</div>
+
+<hr>
+
+<div>
+    <h2>Vista previa de la página</h2>
+    <p><em>Nota: Por razones de seguridad, no se puede mostrar el contenido real de otras páginas web en este navegador HTML simple.</em></p>
+    <iframe id="contenedor-pagina" style="width: 100%; height: 500px; border: 1px solid black;" src="about:blank"></iframe>
+</div>
+
+
+
+</body>
+</html>
