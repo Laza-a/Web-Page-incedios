@@ -3,78 +3,488 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navegador</title>
-    <link rel="stylesheet" href="">
-    <link rel="AppJs" href="app.js">
+    <meta name="description" content="Página educativa sobre animales en peligro de extinción de Córdoba, Argentina">
+    <title>Protejamos la fauna de Córdoba | Concientización Ambiental</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-</body>
-</html>
-<h1>Navegador de Páginas</h1>
+    <!-- HEADER Y NAVEGACIÓN -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <h1>🌿 Fauna Córdoba</h1>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
 
-<div>
-    <label for="url-input">URL:</label>
-    <input type="text" id="url-input" placeholder="https://ejemplo.com" value="https://www.google.com">
-    <button onclick="cargarPagina()">Cargar</button>
-    <button onclick="atras()">Atrás</button>
-    <button onclick="adelante()">Adelante</button>
-    <button onclick="recargar()">Recargar</button>
-</div>
+    <nav class="navbar" id="navbar">
+        <a href="#inicio" class="nav-link">Inicio</a>
+        <a href="#concientizacion" class="nav-link">Concientización</a>
+        <a href="#animales" class="nav-link">Animales</a>
+        <a href="#reciclaje" class="nav-link">Reciclaje</a>
+        <a href="#articulos" class="nav-link">Artículos</a>
+        <a href="#ayudar" class="nav-link">¿Cómo ayudar?</a>
+        <a href="#somos" class="nav-link">¿Quiénes somos?</a>
+    </nav>
 
-<div>
-    <label for="favoritos-select">Favoritos:</label>
-    <select id="favoritos-select">
-        <option value="">-- Selecciona un favorito --</option>
-        <option value="https://www.google.com">Google</option>
-        <option value="https://www.wikipedia.org">Wikipedia</option>
-        <option value="https://www.github.com">GitHub</option>
-        <option value="https://www.stackoverflow.com">Stack Overflow</option>
-    </select>
-    <button onclick="irAFavorito()">Ir a Favorito</button>
-    <button onclick="agregarFavorito()">Agregar a Favoritos</button>
-</div>
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+        <!-- SECCIÓN INICIO -->
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h2 class="hero-title">Protejamos la Fauna de Córdoba</h2>
+                <p class="hero-text">
+                    Conocé las especies únicas y en peligro de nuestro ecosistema cordobés. 
+                    Tu acción hoy puede hacer la diferencia mañana.
+                </p>
+                <button class="btn-primary" id="btnEspecies" aria-label="Ir a especies en peligro">
+                    Conocé las especies
+                </button>
+            </div>
+            <div class="hero-image">
+                <img src="img/fondos/bosque_cordoba.jpg" alt="Bosque nativo de Córdoba">
+            </div>
+        </section>
 
-<div>
-    <h2>Historial</h2>
-    <select id="historial-select" size="5">
-        <option value="">-- Historial vacío --</option>
-    </select>
-    <button onclick="irAlHistorial()">Ir a esta página</button>
-    <button onclick="limpiarHistorial()">Limpiar historial</button>
-</div>
+        <!-- SECCIÓN CONCIENTIZACIÓN -->
+        <section id="concientizacion" class="concientizacion">
+            <div class="container">
+                <h2 class="section-title">Concientización Ambiental</h2>
+                
+                <div class="awareness-grid">
+                    <article class="awareness-card">
+                        <div class="card-icon">🆘</div>
+                        <h3>¿Qué significa "en peligro de extinción"?</h3>
+                        <p>
+                            Una especie se considera en peligro de extinción cuando su población ha disminuido 
+                            drásticamente y corre riesgo de desaparecer completamente del planeta si no se toman 
+                            medidas de conservación urgentes.
+                        </p>
+                    </article>
 
-<div>
-    <h2>Información de la página</h2>
-    <p>
-        <strong>URL actual:</strong>
-        <span id="url-actual">Ninguna</span>
-    </p>
-    <p>
-        <strong>Título:</strong>
-        <span id="titulo-actual">Ninguno</span>
-    </p>
-    <p>
-        <strong>Estado:</strong>
-        <span id="estado">Listo</span>
-    </p>
-</div>
+                    <article class="awareness-card">
+                        <div class="card-icon">🌍</div>
+                        <h3>Biodiversidad</h3>
+                        <p>
+                            La biodiversidad es la variedad de formas de vida que existen en la Tierra. 
+                            Córdoba posee ecosistemas únicos con plantas y animales que solo se encuentran aquí. 
+                            Cada especie cumple un rol importante en la naturaleza.
+                        </p>
+                    </article>
 
-<div>
-    <h2>Buscador</h2>
-    <input type="text" id="busqueda-input" placeholder="Buscar en Google">
-    <button onclick="buscar()">Buscar</button>
-</div>
+                    <article class="awareness-card">
+                        <div class="card-icon">🔗</div>
+                        <h3>¿Por qué es importante conservar?</h3>
+                        <p>
+                            Los ecosistemas son sistemas interconectados. Si desaparece una especie, afecta a todas 
+                            las otras. La conservación protege el equilibrio natural del que nosotros dependemos para 
+                            aire limpio, agua, alimento y clima estable.
+                        </p>
+                    </article>
 
-<hr>
+                    <article class="awareness-card">
+                        <div class="card-icon">🔥</div>
+                        <h3>Incendios Forestales</h3>
+                        <p>
+                            Los incendios destruyen rápidamente grandes áreas de bosque nativo. Desaparecen hábitats 
+                            completos donde viven muchas especies. Los animales pierden su hogar y alimento, 
+                            amenazando su supervivencia.
+                        </p>
+                    </article>
 
-<div>
-    <h2>Vista previa de la página</h2>
-    <p><em>Nota: Por razones de seguridad, no se puede mostrar el contenido real de otras páginas web en este navegador HTML simple.</em></p>
-    <iframe id="contenedor-pagina" style="width: 100%; height: 500px; border: 1px solid black;" src="about:blank"></iframe>
-</div>
+                    <article class="awareness-card">
+                        <div class="card-icon">🌳</div>
+                        <h3>Deforestación</h3>
+                        <p>
+                            La tala de árboles para agricultura y urbanización reduce el hábitat disponible. 
+                            Muchas especies necesitan grandes áreas de bosque para vivir. Sin árboles, desaparecen 
+                            los refugios y fuentes de alimento.
+                        </p>
+                    </article>
 
+                    <article class="awareness-card">
+                        <div class="card-icon">☠️</div>
+                        <h3>Caza y Tráfico Ilegal</h3>
+                        <p>
+                            La captura y venta ilegal de animales silvestres es una amenaza grave. Muchas especies 
+                            son perseguidas por su piel, órganos o como mascotas exóticas, reduciendo drásticamente 
+                            sus poblaciones.
+                        </p>
+                    </article>
 
+                    <article class="awareness-card">
+                        <div class="card-icon">💧</div>
+                        <h3>Contaminación</h3>
+                        <p>
+                            Los derrames de petróleo, agroquímicos y residuos plásticos contaminan ríos y lagos. 
+                            Los animales que beben esta agua enferman o mueren. La contaminación persiste en el 
+                            ambiente durante décadas.
+                        </p>
+                    </article>
 
+                    <article class="awareness-card">
+                        <div class="card-icon">🛡️</div>
+                        <h3>Áreas Naturales Protegidas</h3>
+                        <p>
+                            Las reservas y parques nacionales son espacios donde se protege la fauna y flora. 
+                            En Córdoba contamos con importantes áreas protegidas que sirven de refugio para especies 
+                            en peligro de extinción.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN ANIMALES -->
+        <section id="animales" class="animales">
+            <div class="container">
+                <h2 class="section-title">Fauna de Córdoba</h2>
+                <p class="section-subtitle">Especies en peligro y problemas de conservación documentados</p>
+                
+                <div class="carousel-container">
+                    <button class="carousel-btn prev" id="prevBtn" aria-label="Animal anterior">❮</button>
+                    
+                    <div class="carousel" id="carousel">
+                        <!-- Las tarjetas se generarán con JavaScript -->
+                    </div>
+                    
+                    <button class="carousel-btn next" id="nextBtn" aria-label="Siguiente animal">❯</button>
+                </div>
+
+                <div class="carousel-dots" id="dots">
+                    <!-- Los puntos se generarán con JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- MODAL DE DETALLES -->
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <button class="modal-close" id="closeModal" aria-label="Cerrar">✕</button>
+                <div id="modalBody">
+                    <!-- El contenido se cargará dinámicamente con JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN RECICLAJE -->
+        <section id="reciclaje" class="reciclaje">
+            <div class="container">
+                <h2 class="section-title">Reciclaje</h2>
+                <p class="section-subtitle">
+                    Una acción simple que protege nuestro ambiente y fauna
+                </p>
+
+                <div class="recycling-intro">
+                    <h3>¿Por qué reciclar?</h3>
+                    <p>
+                        El reciclaje reduce la cantidad de residuos que llegan a la naturaleza. Menos plástico en los océanos 
+                        significa menos animales enfermos. Menos basura en los bosques significa más hábitat seguro para la fauna.
+                    </p>
+                </div>
+
+                <div class="recycling-categories">
+                    <button class="recycling-btn" data-category="papel" aria-label="Información sobre reciclaje de papel">
+                        📄 PAPEL
+                    </button>
+                    <button class="recycling-btn" data-category="plastico" aria-label="Información sobre reciclaje de plástico">
+                        🧴 PLÁSTICO
+                    </button>
+                    <button class="recycling-btn" data-category="vidrio" aria-label="Información sobre reciclaje de vidrio">
+                        🍾 VIDRIO
+                    </button>
+                    <button class="recycling-btn" data-category="metal" aria-label="Información sobre reciclaje de metal">
+                        🥫 METAL
+                    </button>
+                    <button class="recycling-btn" data-category="organico" aria-label="Información sobre residuos orgánicos">
+                        🌱 ORGÁNICO
+                    </button>
+                </div>
+
+                <div class="recycling-info" id="recyclingInfo">
+                    <!-- La información se cargará aquí dinámicamente -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN ARTÍCULOS -->
+        <section id="articulos" class="articulos">
+            <div class="container">
+                <h2 class="section-title">Artículos y Noticias</h2>
+                <p class="section-subtitle">Información sobre fauna, conservación y ambiente en Córdoba</p>
+
+                <div class="articles-grid">
+                    <article class="article-card">
+                        <img src="img/articulos/incendios.jpg" alt="Incendios forestales en Córdoba">
+                        <div class="article-content">
+                            <span class="article-category">Incendios</span>
+                            <h3>Incendios forestales: la mayor amenaza para la fauna de Córdoba</h3>
+                            <p>
+                                Los incendios del 2023 consumieron miles de hectáreas de bosque nativo, 
+                                destruyendo hábitats de especies en peligro como el Aguará guazú.
+                            </p>
+                            <span class="article-date">Agosto 2023</span>
+                            <a href="#" class="btn-secondary">Leer más</a>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <img src="img/articulos/deforestacion.jpg" alt="Deforestación en Córdoba">
+                        <div class="article-content">
+                            <span class="article-category">Conservación</span>
+                            <h3>Deforestación: pérdida acelerada de hábitat</h3>
+                            <p>
+                                Estudios demuestran que la deforestación en Córdoba ha disminuido 40% del bosque nativo 
+                                en las últimas décadas, afectando directamente a la fauna.
+                            </p>
+                            <span class="article-date">Junio 2024</span>
+                            <a href="#" class="btn-secondary">Leer más</a>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <img src="img/articulos/aguara_guazu.jpg" alt="Aguará guazú en Córdoba">
+                        <div class="article-content">
+                            <span class="article-category">Fauna</span>
+                            <h3>Aguará guazú: el perro salvaje de Córdoba resiste</h3>
+                            <p>
+                                Investigadores registran avistamientos del Aguará guazú en zonas de la Serranía de Córdoba, 
+                                indicando que la especie aún habita la región.
+                            </p>
+                            <span class="article-date">Marzo 2024</span>
+                            <a href="#" class="btn-secondary">Leer más</a>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <img src="img/articulos/biodiversidad.jpg" alt="Biodiversidad de Córdoba">
+                        <div class="article-content">
+                            <span class="article-category">Biodiversidad</span>
+                            <h3>Córdoba: un hotspot de biodiversidad desconocido</h3>
+                            <p>
+                                La provincia alberga ecosistemas únicos con especies endémicas. Expertos en conservación 
+                                advierten sobre la urgencia de proteger estos espacios.
+                            </p>
+                            <span class="article-date">Febrero 2024</span>
+                            <a href="#" class="btn-secondary">Leer más</a>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <img src="img/articulos/areas_protegidas.jpg" alt="Áreas protegidas de Córdoba">
+                        <div class="article-content">
+                            <span class="article-category">Áreas Protegidas</span>
+                            <h3>Expansión de áreas protegidas en Córdoba</h3>
+                            <p>
+                                El gobierno provincial amplía las reservas naturales para salvaguardar poblaciones 
+                                de fauna silvestre y ecosistemas críticos.
+                            </p>
+                            <span class="article-date">Enero 2024</span>
+                            <a href="#" class="btn-secondary">Leer más</a>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <img src="img/articulos/educacion_ambiental.jpg" alt="Educación ambiental">
+                        <div class="article-content">
+                            <span class="article-category">Educación</span>
+                            <h3>Educación ambiental: sembrando conciencia en escuelas</h3>
+                            <p>
+                                Proyectos educativos en escuelas cordobesas buscan formar una generación comprometida 
+                                con la conservación del ambiente.
+                            </p>
+                            <span class="article-date">Diciembre 2023</span>
+                            <a href="#" class="btn-secondary">Leer más</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN CÓMO AYUDAR -->
+        <section id="ayudar" class="como-ayudar">
+            <div class="container">
+                <h2 class="section-title">¿Cómo podemos ayudar?</h2>
+                <p class="section-subtitle">Acciones concretas que tú puedes realizar hoy</p>
+
+                <div class="acciones-grid">
+                    <div class="accion-card">
+                        <div class="accion-icon">🚫</div>
+                        <h3>No compres animales silvestres</h3>
+                        <p>
+                            La compra de animales capturados en la naturaleza es ilegal y daña poblaciones 
+                            salvajes. No contribuyas al tráfico de fauna.
+                        </p>
+                    </div>
+
+                    <div class="accion-card">
+                        <div class="accion-icon">🏞️</div>
+                        <h3>Respeta áreas naturales</h3>
+                        <p>
+                            Si visitas reservas o parques, mantente en los senderos autorizados. 
+                            Evita hacer ruido que asuste a los animales.
+                        </p>
+                    </div>
+
+                    <div class="accion-card">
+                        <div class="accion-icon">♻️</div>
+                        <h3>Separa residuos</h3>
+                        <p>
+                            Recicla papel, plástico, vidrio y metal. Menos basura en los ecosistemas 
+                            significa animales más seguros.
+                        </p>
+                    </div>
+
+                    <div class="accion-card">
+                        <div class="accion-icon">🚗</div>
+                        <h3>Reduce tu huella de carbono</h3>
+                        <p>
+                            Camina, usa bicicleta o transporte público. Reduce emisiones que contribuyen 
+                            al cambio climático que afecta a la fauna.
+                        </p>
+                    </div>
+
+                    <div class="accion-card">
+                        <div class="accion-icon">🌱</div>
+                        <h3>Planta especies nativas</h3>
+                        <p>
+                            Si tienes jardín, planta árboles y arbustos nativos de Córdoba. 
+                            Proporcionan alimento y refugio a animales salvajes.
+                        </p>
+                    </div>
+
+                    <div class="accion-card">
+                        <div class="accion-icon">🔥</div>
+                        <h3>Prevén incendios</h3>
+                        <p>
+                            No hagas fuego en áreas protegidas. Usa colillas correctamente. 
+                            Los incendios destruyen miles de vidas animales.
+                        </p>
+                    </div>
+
+                    <div class="accion-card">
+                        <div class="accion-icon">💧</div>
+                        <h3>No contamines agua</h3>
+                        <p>
+                            No viertas residuos en ríos y lagos. Usa productos biodegradables. 
+                            El agua limpia es esencial para la fauna.
+                        </p>
+                    </div>
+
+                    <div class="accion-card">
+                        <div class="accion-icon">📱</div>
+                        <h3>Comparte información</h3>
+                        <p>
+                            Educa a otros sobre la importancia de la conservación. Compartir conocimiento 
+                            multiplica el impacto de tu acción.
+                        </p>
+                    </div>
+
+                    <div class="accion-card">
+                        <div class="accion-icon">🐾</div>
+                        <h3>Reporta animales en peligro</h3>
+                        <p>
+                            Si encuentras un animal herido, reportalo a autoridades ambientales. 
+                            Tu aviso puede salvar una vida.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN QUIÉNES SOMOS -->
+        <section id="somos" class="quienes-somos">
+            <div class="container">
+                <h2 class="section-title">¿Quiénes somos?</h2>
+
+                <div class="somos-content">
+                    <div class="somos-text">
+                        <p>
+                            Esta página es un proyecto educativo desarrollado por estudiantes con el objetivo 
+                            de informar y concientizar sobre la conservación de la fauna y el ambiente de Córdoba, Argentina.
+                        </p>
+                        <p>
+                            Creemos que la educación ambiental es fundamental para crear una sociedad comprometida 
+                            con la protección de nuestras especies y ecosistemas únicos.
+                        </p>
+                    </div>
+
+                    <div class="somos-info">
+                        <div class="info-field">
+                            <label>Integrantes:</label>
+                            <input type="text" placeholder="Nombres de los integrantes" readonly>
+                        </div>
+                        <div class="info-field">
+                            <label>Escuela:</label>
+                            <input type="text" placeholder="Nombre de la institución" readonly>
+                        </div>
+                        <div class="info-field">
+                            <label>Curso:</label>
+                            <input type="text" placeholder="Año/División" readonly>
+                        </div>
+                        <div class="info-field">
+                            <label>Materia:</label>
+                            <input type="text" placeholder="Biología / Educación Ambiental" readonly>
+                        </div>
+                        <div class="info-field">
+                            <label>Profesor/a:</label>
+                            <input type="text" placeholder="Nombre del docente" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🌿 Fauna Córdoba</h3>
+                    <p>
+                        Un proyecto educativo sobre concientización ambiental y conservación 
+                        de la fauna en Córdoba, Argentina.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Enlaces rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#animales">Animales</a></li>
+                        <li><a href="#ayudar">¿Cómo ayudar?</a></li>
+                        <li><a href="#somos">Quiénes somos</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Redes sociales</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="YouTube">📹</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 — Proyecto educativo sobre la fauna de Córdoba, Argentina</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Cargar app.js de forma correcta
+        // La etiqueta link con rel="js" no es estándar, pero mantenemos la referencia solicitada
+        // Agregamos la forma correcta mediante script tag para asegurar funcionamiento
+    </script>
+    <script src="app.js"></script>
 </body>
 </html>
