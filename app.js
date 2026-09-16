@@ -10,7 +10,7 @@ const animales = [
         descripcion: "El mayor cánido silvestre de América del Sur, también conocido como lobo de crin.",
         poblacion: "Estimación no confiable para Córdoba específicamente. Presente pero muy escaso.",
         estado: "Amenazado",
-        imagen: "img/animales/aguara_guazu.jpg",
+        imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Chrysocyon_brachyurus_%28Maned_Wolf%29.jpg/800px-Chrysocyon_brachyurus_%28Maned_Wolf%29.jpg",
         detalles: {
             caracteristicas: "Mide entre 150-190 cm de largo (sin cola) y pesa 20-25 kg. Pelaje rojizo-dorado con el dorso negro. Patas largas y delgadas. Orejas grandes y erectas.",
             habitat: "Sabanas, pastizales y bosques abiertos de Córdoba. Prefiere áreas con agua cercana.",
@@ -29,7 +29,7 @@ const animales = [
         descripcion: "El felino más grande de América, símbolo de la vida silvestre de Córdoba.",
         poblacion: "Prácticamente extinto en Córdoba. Poblaciones viables en Misiones y Chaco.",
         estado: "En Peligro Crítico",
-        imagen: "img/animales/yaguarete.jpg",
+        imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Panthera_onca_%28Jaguar%29.jpg/800px-Panthera_onca_%28Jaguar%29.jpg",
         detalles: {
             caracteristicas: "Gato manchado más grande del mundo. Pesa 100-250 kg. Pelaje amarillento con manchas negras en roseta. Cuerpo musculoso y poderoso.",
             habitat: "Selvas, bosques húmedos y cerrados con agua abundante.",
@@ -48,7 +48,7 @@ const animales = [
         descripcion: "Felino silvestre de tamaño grande, presente en la región serrana de Córdoba.",
         poblacion: "Estimación no confiable. Poblaciones muy reducidas y dispersas.",
         estado: "Vulnerable",
-        imagen: "img/animales/puma.jpg",
+        imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Puma_concolor_2.jpg/800px-Puma_concolor_2.jpg",
         detalles: {
             caracteristicas: "Felino de tamaño grande que pesa 53-100 kg. Pelaje uniforme marrón-grisáceo. Cabeza pequeña, orejas puntiagudas, cola larga.",
             habitat: "Sierras, montañas, bosques densos y zonas rocosas de Córdoba.",
@@ -67,7 +67,7 @@ const animales = [
         descripcion: "Pequeño jabalí silvestre que habita las regiones boscosas del norte de Córdoba.",
         poblacion: "Estimación no confiable. Poblaciones reducidas en zonas boscosas.",
         estado: "Vulnerable",
-        imagen: "img/animales/pecari.jpg",
+        imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Pecari_collare.jpg/800px-Pecari_collare.jpg",
         detalles: {
             caracteristicas: "Jabalí pequeño que pesa 15-30 kg. Pelaje gris oscuro con una banda de pelo claro en el cuello (collar). Colmillos pequeños.",
             habitat: "Bosques densos, sabanas arboladas y zonas boscosas de Córdoba.",
@@ -86,7 +86,7 @@ const animales = [
         descripcion: "Ave no voladora más grande de América, en situación vulnerable en Córdoba.",
         poblacion: "Poblaciones fragmentadas. Estimación: cientos de individuos en la provincia.",
         estado: "Vulnerable",
-        imagen: "img/animales/nandu.jpg",
+        imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Rhea_americana_%28Ema%29.jpg/800px-Rhea_americana_%28Ema%29.jpg",
         detalles: {
             caracteristicas: "Ave corredora de 1.4-1.8 metros de altura que pesa 20-40 kg. Plumaje gris parduzco. Patas largas y musculosas. Cuello largo y desnudo.",
             habitat: "Pastizales, sabanas y llanuras de Córdoba.",
@@ -105,7 +105,7 @@ const animales = [
         descripcion: "Pequeño venado que habita los pastizales de Córdoba, en grave peligro de extinción.",
         poblacion: "Menos de 200 individuos estimados en toda la provincia.",
         estado: "En Peligro",
-        imagen: "img/animales/venado_pampas.jpg",
+        imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Ozotoceros_bezoarticus.jpg/800px-Ozotoceros_bezoarticus.jpg",
         detalles: {
             caracteristicas: "Pequeño venado que pesa 20-35 kg. Pelaje rojizo en dorso, blanco en vientre. Pequeñas astas en machos. Orejas grandes.",
             habitat: "Pastizales pampeanos y sabanas abiertas de Córdoba.",
@@ -124,7 +124,7 @@ const animales = [
         descripcion: "Loro de tamaño mediano que habita en los bosques serranos de Córdoba.",
         poblacion: "Poblaciones reducidas pero estables en bosques serranos.",
         estado: "Vulnerable",
-        imagen: "img/animales/loro_choclero.jpg",
+        imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Amazona_viridis.jpg/800px-Amazona_viridis.jpg",
         detalles: {
             caracteristicas: "Loro de 25-28 cm de largo. Plumaje verde, alas con manchas amarillas. Cabeza verde con parches amarillos. Pico gris.",
             habitat: "Bosques serranos, especialmente bosque de transición entre selva y cerrado.",
@@ -143,7 +143,7 @@ const animales = [
         descripcion: "Mamífero pequeño de los bosques, reconocible por su larga cola anillada.",
         poblacion: "Poblaciones relativamente estables en áreas boscosas.",
         estado: "Vulnerable",
-        imagen: "img/animales/coati.jpg",
+        imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Nasua_nasua_-_Coati.jpg/800px-Nasua_nasua_-_Coati.jpg",
         detalles: {
             caracteristicas: "Mamífero de 40-65 cm de largo, cola de 40-56 cm. Pelaje marrón-grisáceo. Hocico alargado. Cola anillada con bandas negras.",
             habitat: "Bosques, selvas, zonas boscosas de Córdoba.",
