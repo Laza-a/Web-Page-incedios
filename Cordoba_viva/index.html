@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Córdoba Viva: periodismo y concientización sobre incendios, fauna y flora nativa.">
+  <title>Córdoba Viva | Periodismo ambiental</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="js/principal.js" defer></script>
+</head>
+<body>
+<header class="site-header">
+  <a class="logo" href="index.html">🌿 Córdoba <span>Viva</span></a>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#articulos">Artículos</a>
+    <a href="#prevencion">Prevención</a>
+    <a href="#campanas">Campañas</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <p class="eyebrow">Periodismo · Ambiente · Córdoba, Argentina</p>
+      <h1>El futuro de nuestras sierras también depende de vos.</h1>
+      <p>Informamos sobre los incendios forestales y la importancia de proteger la fauna y la flora nativa.</p>
+      <a class="button" href="#articulos">Leer los artículos ↓</a>
+    </div>
+  </section>
+
+  <section class="section" id="articulos">
+    <p class="eyebrow">Información para actuar</p>
+    <h2>Historias que importan</h2>
+    <p class="intro">Explorá nuestras notas y conocé cómo podemos cuidar el ambiente cordobés.</p>
+
+    <div class="search-row">
+      <input id="busqueda" type="search" placeholder="Buscar un artículo..." aria-label="Buscar artículos">
+    </div>
+
+    <div class="filters" aria-label="Filtrar artículos">
+      <button class="filter active" data-filter="todos">Todos</button>
+      <button class="filter" data-filter="incendios">Incendios</button>
+      <button class="filter" data-filter="fauna">Fauna</button>
+      <button class="filter" data-filter="flora">Flora</button>
+    </div>
+
+    <div class="article-grid" id="lista-articulos">
+      <article class="article-card" data-category="incendios">
+        <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=900&q=80" alt="Bosque, fotografía ilustrativa">
+        <div class="card-content">
+          <p class="category">Incendios forestales</p>
+          <h3>Cuando el fuego amenaza el bosque</h3>
+          <p>Consecuencias de los incendios sobre los ecosistemas y las comunidades.</p>
+          <a class="read-more" href="articulos/riesgo-incendios.html">Leer artículo →</a>
+        </div>
+      </article>
+
+      <article class="article-card" data-category="fauna">
+        <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=900&q=80" alt="Animales silvestres, imagen ilustrativa">
+        <div class="card-content">
+          <p class="category">Fauna cordobesa</p>
+          <h3>Los animales también pierden su hogar</h3>
+          <p>Cómo la pérdida de hábitat afecta a la fauna silvestre.</p>
+          <a class="read-more" href="articulos/fauna-amenazada.html">Leer artículo →</a>
+        </div>
+      </article>
+
+      <article class="article-card" data-category="flora">
+        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=900&q=80" alt="Vegetación de bosque, imagen ilustrativa">
+        <div class="card-content">
+          <p class="category">Flora nativa</p>
+          <h3>El valor del bosque nativo</h3>
+          <p>Por qué las plantas nativas son esenciales para la biodiversidad.</p>
+          <a class="read-more" href="articulos/flora-nativa.html">Leer artículo →</a>
+        </div>
+      </article>
+
+      <article class="article-card" data-category="incendios">
+        <img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=900&q=80" alt="Paisaje de bosque, imagen ilustrativa">
+        <div class="card-content">
+          <p class="category">Prevención</p>
+          <h3>Prevenir es responsabilidad de todos</h3>
+          <p>Hábitos responsables para ayudar a evitar incendios forestales.</p>
+          <a class="read-more" href="articulos/prevencion.html">Leer artículo →</a>
+        </div>
+      </article>
+
+      <article class="article-card" data-category="fauna">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Ambiente natural, imagen ilustrativa">
+        <div class="card-content">
+          <p class="category">Cómo ayudar</p>
+          <h3>¿Qué hacer si encontrás fauna afectada?</h3>
+          <p>Cómo actuar con cuidado y pedir ayuda especializada.</p>
+          <a class="read-more" href="articulos/ayudar-fauna.html">Leer artículo →</a>
+        </div>
+      </article>
+
+      <article class="article-card" data-category="flora">
+        <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=900&q=80" alt="Bosque, imagen ilustrativa">
+        <div class="card-content">
+          <p class="category">Recuperación ambiental</p>
+          <h3>Después del incendio: recuperar la vida</h3>
+          <p>La importancia de recuperar y proteger los ambientes naturales.</p>
+          <a class="read-more" href="articulos/recuperacion.html">Leer artículo →</a>
+        </div>
+      </article>
+    </div>
+    <p id="sin-resultados" class="notice" hidden>No se encontraron artículos con esa búsqueda.</p>
+  </section>
+
+  <section class="section soft-section" id="prevencion">
+    <div class="split">
+      <div>
+        <p class="eyebrow">Cuidemos Córdoba</p>
+        <h2>La prevención empieza con nuestras acciones.</h2>
+        <ul class="tips">
+          <li>Respetá las restricciones sobre el uso del fuego.</li>
+          <li>No arrojes colillas ni fósforos en zonas naturales.</li>
+          <li>No dejes residuos en el campo ni en las sierras.</li>
+          <li>Si observás un incendio, alejate y avisá a las autoridades.</li>
+        </ul>
+        <a class="button" href="articulos/prevencion.html">Más consejos</a>
+      </div>
+      <img class="feature-image" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1100&q=80" alt="Bosque verde, imagen ilustrativa">
+    </div>
+  </section>
+
+  <section class="section" id="campanas">
+    <div class="campaign">
+      <div>
+        <p class="eyebrow">Espacio de difusión ambiental</p>
+        <h2>Tu campaña puede generar un cambio.</h2>
+        <p>Un espacio para difundir campañas escolares, proyectos de conservación y mensajes de prevención.</p>
+      </div>
+      <a class="button" href="https://ambiente.cba.gov.ar/" target="_blank" rel="noopener">Visitar Ambiente Córdoba</a>
+    </div>
+  </section>
+
+  <section class="section sources">
+    <p class="eyebrow">Seguí investigando</p>
+    <h2>Fuentes para consultar</h2>
+    <ul>
+      <li><a href="https://www.idecor.gob.ar/mapas-de-areas-quemadas/" target="_blank" rel="noopener">IDECOR: mapas de áreas quemadas</a></li>
+      <li><a href="https://www.argentina.gob.ar/normativa/provincial/ley-8751-123456789-0abc-defg-157-8000ovorpyel/actualizacion" target="_blank" rel="noopener">Ley provincial 8751: manejo del fuego</a></li>
+      <li><a href="https://www.argentina.gob.ar/jefatura/turismo-y-ambiente/ambiente/articulacion-ambiental/derechos-de-acceso-por-provincia/cordoba" target="_blank" rel="noopener">Organismos y recursos ambientales de Córdoba</a></li>
+    </ul>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <a class="logo" href="index.html">🌿 Córdoba <span>Viva</span></a>
+  <p>Proyecto escolar de concientización y periodismo ambiental.</p>
+  <small>Las fotografías son ilustrativas y no necesariamente corresponden a lugares de Córdoba. Verificá la licencia de cada imagen antes de publicar.</small>
+</footer>
+</body>
+</html>

@@ -1,0 +1,21 @@
+
+CORDOBA VIVA - CARPETA DE IMAGENES
+
+En esta carpeta podés guardar las fotografías del proyecto.
+
+Nombres sugeridos:
+- bosque-nativo.jpg
+- incendio-forestal.jpg
+- fauna-silvestre.jpg
+- flora-nativa.jpg
+- recuperacion-ambiental.jpg
+
+IMPORTANTE:
+1. Verificá la licencia de cada fotografía.
+2. Anotá el autor y la fuente cuando corresponda.
+3. No presentes una foto ilustrativa como si fuera evidencia de un incendio real en Córdoba.
+4. Si descargás una imagen, cambiá el enlace de la etiqueta <img> por una ruta local, por ejemplo:
+   ../imagenes/fauna-silvestre.jpg
+
+Las fotografías de la página inicial están enlazadas desde internet,
+por lo que requieren conexión mientras uses esos enlaces.
