@@ -1,0 +1,30 @@
+
+{
+  "fuentes": [
+    {
+      "nombre": "La Voz del Interior",
+      "url": "https://www.lavoz.com.ar/rss/",
+      "activa": true
+    },
+    {
+      "nombre": "El Doce",
+      "url": "",
+      "activa": false
+    },
+    {
+      "nombre": "Argentina.gob.ar",
+      "url": "",
+      "activa": false
+    },
+    {
+      "nombre": "IDECOR",
+      "url": "",
+      "activa": false
+    },
+    {
+      "nombre": "Gobierno de Córdoba",
+      "url": "",
+      "activa": false
+    }
+  ]
+}
