@@ -41,10 +41,20 @@ a {
 }
 
 .logo {
+  display: inline-flex;
+  align-items: center;
   color: white;
   text-decoration: none;
   font-size: 1.45rem;
   font-weight: 900;
+}
+
+.logo img {
+  display: block;
+  width: auto;
+  max-width: 220px;
+  height: 56px;
+  object-fit: contain;
 }
 
 .logo span {
