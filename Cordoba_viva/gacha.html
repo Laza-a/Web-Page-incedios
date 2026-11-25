@@ -1,0 +1,847 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoGacha - Córdoba Viva</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #e5f1df;
+    color: #294b35;
+    text-align: center;
+}
+
+header {
+    background: #286b42;
+    color: white;
+    padding: 25px;
+}
+
+header h1 {
+    font-size: 35px;
+    margin: 5px;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+.volver {
+    display: inline-block;
+    background: #205d35;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.datos {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+.dato {
+    background: white;
+    padding: 13px 22px;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+.juego, .quiz {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px #0002;
+}
+
+.capsula {
+    font-size: 75px;
+    margin: 20px;
+    display: inline-block;
+}
+
+.animar {
+    animation: mover 0.2s infinite alternate;
+}
+
+@keyframes mover {
+    from { transform: rotate(-12deg) scale(1); }
+    to { transform: rotate(12deg) scale(1.15); }
+}
+
+button {
+    background: #398c50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 13px 22px;
+    margin: 7px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #205d35;
+}
+
+button:disabled {
+    background: gray;
+    cursor: not-allowed;
+}
+
+.resultado {
+    display: none;
+    background: #edf7e9;
+    padding: 18px;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+.foto-principal {
+    width: 100%;
+    max-width: 360px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 15px;
+    background: #d5e5d0;
+}
+
+.comun { color: #777; }
+.raro { color: #2584c7; }
+.epico { color: #9145c5; }
+.legendario { color: #d58b00; }
+
+.coleccion {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.tarjeta {
+    background: white;
+    padding: 12px;
+    border-radius: 15px;
+    box-shadow: 0 3px 7px #0002;
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.bloqueado img {
+    filter: grayscale(1);
+    opacity: 0.25;
+}
+
+.bloqueado h3 {
+    color: #999;
+}
+
+.reglas {
+    background: #c7e4c5;
+    border-radius: 15px;
+    padding: 18px;
+    margin-top: 25px;
+}
+
+/* PREGUNTAS */
+
+.quiz h2 {
+    color: #286b42;
+}
+
+.recompensa {
+    display: inline-block;
+    background: #e5f1df;
+    color: #286b42;
+    font-weight: bold;
+    padding: 12px 18px;
+    border-radius: 12px;
+    margin: 12px;
+}
+
+.opciones {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    max-width: 550px;
+    margin: 20px auto;
+}
+
+.opciones button {
+    margin: 0;
+    min-height: 55px;
+}
+
+.opciones button:disabled {
+    opacity: 0.85;
+}
+
+#resultadoPregunta {
+    font-weight: bold;
+    min-height: 24px;
+}
+
+#siguientePregunta {
+    background: #286b42;
+}
+
+footer {
+    background: #286b42;
+    color: white;
+    padding: 18px;
+    margin-top: 30px;
+}
+
+footer a {
+    color: white;
+}
+
+@media (max-width: 500px) {
+    .opciones {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🌿 EcoGacha</h1>
+    <p>Descubrí los animales de las sierras de Córdoba</p>
+    <a class="volver" href="index.html">← Volver a Córdoba Viva</a>
+</header>
+
+<main>
+
+    <h2>¡Bienvenido a EcoGacha!</h2>
+    <p>Hay muchos animales esperando ser descubiertos. ¿Cuáles te van a tocar?</p>
+
+    <div class="datos">
+        <div class="dato">🪙 Monedas: <span id="monedas">20</span></div>
+        <div class="dato">📖 Descubiertos: <span id="contador">0</span>/8</div>
+    </div>
+
+    <!-- MÁQUINA DE CÁPSULAS -->
+
+    <section class="juego">
+
+        <h2>🎁 Máquina de cápsulas</h2>
+        <p>¡Probá tu suerte y completá tu álbum!</p>
+
+        <div class="capsula" id="capsula">🎁</div>
+
+        <p id="estado">La máquina está esperando...</p>
+
+        <button id="boton1" onclick="abrir(1)">
+            Abrir x1 - 5 monedas
+        </button>
+
+        <button id="boton3" onclick="abrir(3)">
+            Abrir x3 - 15 monedas
+        </button>
+
+        <div class="resultado" id="resultado">
+            <h2 id="tituloResultado">¡Nuevo descubrimiento!</h2>
+            <img id="fotoAnimal" class="foto-principal" src="" alt="Animal descubierto">
+            <h2 id="nombreAnimal"></h2>
+            <h3 id="rarezaAnimal"></h3>
+            <p id="descripcionAnimal"></p>
+            <p id="mensaje"></p>
+            <a id="fuenteAnimal" href="#" target="_blank" rel="noopener">Ver fotografía original</a>
+        </div>
+
+    </section>
+
+    <!-- PREGUNTAS -->
+
+    <section class="quiz">
+
+        <h2>🧠 ¡Poné a prueba tus conocimientos!</h2>
+
+        <p>Respondé preguntas sobre la naturaleza de Córdoba y ganá monedas.</p>
+
+        <div class="recompensa">
+            🪙 +5 monedas por respuesta correcta
+        </div>
+
+        <h3 id="pregunta">Preparando pregunta...</h3>
+
+        <div id="opciones" class="opciones"></div>
+
+        <p id="resultadoPregunta" aria-live="polite"></p>
+
+        <button id="siguientePregunta" onclick="nuevaPregunta()" hidden>
+            Siguiente pregunta →
+        </button>
+
+    </section>
+
+    <!-- REGLAS -->
+
+    <section class="reglas">
+        <h3>🎮 ¿Cómo se juega?</h3>
+        <p>1. Comenzás con 20 monedas.</p>
+        <p>2. Cada cápsula cuesta 5 monedas.</p>
+        <p>3. Si te toca un animal repetido, ganás 2 monedas.</p>
+        <p>4. Respondé preguntas y ganá 5 monedas por acierto.</p>
+        <p>5. Completá los 8 animales del álbum.</p>
+    </section>
+
+    <!-- ÁLBUM -->
+
+    <h2>📚 Mi álbum de animales</h2>
+    <p>Acá aparecen los animales que vas descubriendo.</p>
+
+    <div class="coleccion" id="coleccion"></div>
+
+</main>
+
+<footer>
+    <p>EcoGacha - Córdoba Viva 🌱</p>
+    <p>Conocer nuestra fauna es el primer paso para cuidarla.</p>
+    <a href="index.html">Volver a la página principal</a>
+</footer>
+
+<script>
+
+// ==================================
+// ANIMALES
+// ==================================
+
+const animales = [
+
+{
+    nombre: "Zorro gris",
+    imagen: "https://commons.wikimedia.org/wiki/Special:FilePath/Zorro_gris_%28Lycalopex_gymnocercus%29.jpg",
+    rareza: "Común",
+    descripcion: "Es un animal que vive en diferentes ambientes de Argentina. Se alimenta de frutos y pequeños animales.",
+    fuente: "https://commons.wikimedia.org/wiki/File:Zorro_gris_(Lycalopex_gymnocercus).jpg"
+},
+
+{
+    nombre: "Lagarto overo",
+    imagen: "https://commons.wikimedia.org/wiki/Special:FilePath/Lagarto_Overo_%28Salvator_merianae%29.jpg",
+    rareza: "Común",
+    descripcion: "Es un reptil grande que vive en ambientes naturales y puede verse tomando sol.",
+    fuente: "https://commons.wikimedia.org/wiki/File:Lagarto_Overo_(Salvator_merianae).jpg"
+},
+
+{
+    nombre: "Lechucita vizcachera",
+    imagen: "https://commons.wikimedia.org/wiki/Special:FilePath/Athene_cunicularia_%22Lechucitas_de_las_vizcacheras%22.jpg",
+    rareza: "Común",
+    descripcion: "Es un ave que suele vivir en cuevas y tiene hábitos principalmente diurnos.",
+    fuente: "https://commons.wikimedia.org/wiki/File:Athene_cunicularia_%22Lechucitas_de_las_vizcacheras%22.jpg"
+},
+
+{
+    nombre: "Puma",
+    imagen: "https://commons.wikimedia.org/wiki/Special:FilePath/Puma_en_ladera_nevada.jpg",
+    rareza: "Raro",
+    descripcion: "Es un felino silvestre que habita distintas regiones de Argentina, incluidas las sierras.",
+    fuente: "https://commons.wikimedia.org/wiki/Category:Puma_concolor_of_Argentina"
+},
+
+{
+    nombre: "Gato montés",
+    imagen: "https://commons.wikimedia.org/wiki/Special:FilePath/Gato_mont%C3%A9s_%28Leopardus_geoffroyi%29.jpg",
+    rareza: "Raro",
+    descripcion: "Es un felino pequeño y silvestre que vive en distintos ambientes naturales.",
+    fuente: "https://commons.wikimedia.org/wiki/File:Gato_mont%C3%A9s_(Leopardus_geoffroyi).jpg"
+},
+
+{
+    nombre: "Corzuela parda",
+    imagen: "https://commons.wikimedia.org/wiki/Special:FilePath/Mazama_gouazoubira.JPG",
+    rareza: "Épico",
+    descripcion: "Es un ciervo pequeño que habita zonas de monte y vegetación.",
+    fuente: "https://commons.wikimedia.org/wiki/File:Mazama_gouazoubira.JPG"
+},
+
+{
+    nombre: "Águila mora",
+    imagen: "https://commons.wikimedia.org/wiki/Special:FilePath/Aguila_mora.JPG",
+    rareza: "Épico",
+    descripcion: "Es un ave rapaz que puede observarse volando sobre las zonas serranas.",
+    fuente: "https://commons.wikimedia.org/wiki/Category:Geranoaetus_melanoleucus"
+},
+
+{
+    nombre: "Cóndor andino",
+    imagen: "https://commons.wikimedia.org/wiki/Special:FilePath/C%C3%B3ndor_sobrevolando_la_Pampa_de_Achala.jpg",
+    rareza: "Legendario",
+    descripcion: "Es una de las aves voladoras más grandes del mundo. Se puede observar en las sierras cordobesas.",
+    fuente: "https://commons.wikimedia.org/wiki/Category:Vultur_gryphus"
+}
+
+];
+
+// ==================================
+// PREGUNTAS
+// ==================================
+
+const preguntas = [
+
+{
+    pregunta: "¿Qué animal es el felino más grande de Córdoba?",
+    opciones: ["Gato montés", "Puma", "Zorro gris", "Corzuela"],
+    correcta: 1
+},
+
+{
+    pregunta: "¿Qué debemos hacer si encontramos un animal silvestre herido?",
+    opciones: [
+        "Llevárnoslo a casa",
+        "Darle cualquier comida",
+        "Contactar especialistas",
+        "Dejarlo en una ruta"
+    ],
+    correcta: 2
+},
+
+{
+    pregunta: "¿Qué puede provocar un incendio forestal?",
+    opciones: [
+        "Una colilla mal apagada",
+        "La lluvia",
+        "La sombra de un árbol",
+        "El rocío"
+    ],
+    correcta: 0
+},
+
+{
+    pregunta: "¿Cuál de estas aves habita las sierras cordobesas?",
+    opciones: [
+        "Pingüino emperador",
+        "Cóndor andino",
+        "Flamenco caribeño",
+        "Kiwi"
+    ],
+    correcta: 1
+},
+
+{
+    pregunta: "¿Qué debemos evitar en los bosques?",
+    opciones: [
+        "Caminar por senderos",
+        "Observar animales",
+        "Arrojar basura",
+        "Sacar fotografías"
+    ],
+    correcta: 2
+},
+
+{
+    pregunta: "¿Qué es la flora nativa?",
+    opciones: [
+        "Plantas originarias de una región",
+        "Plantas artificiales",
+        "Plantas de otros continentes",
+        "Plantas de plástico"
+    ],
+    correcta: 0
+},
+
+{
+    pregunta: "¿Qué animal es conocido por tener astas y habitar zonas de monte?",
+    opciones: [
+        "Lechucita vizcachera",
+        "Lagarto overo",
+        "Corzuela parda",
+        "Zorro gris"
+    ],
+    correcta: 2
+},
+
+{
+    pregunta: "¿Qué debemos hacer al observar un incendio forestal?",
+    opciones: [
+        "Acercarnos a grabar",
+        "Alejarnos y avisar a las autoridades",
+        "Intentar apagarlo sin preparación",
+        "Ignorarlo"
+    ],
+    correcta: 1
+}
+
+];
+
+// ==================================
+// DATOS GUARDADOS
+// ==================================
+
+const monedasGuardadas = localStorage.getItem("ecoMonedas");
+
+let monedas = monedasGuardadas === null
+    ? 20
+    : Number(monedasGuardadas);
+
+let descubiertos = JSON.parse(
+    localStorage.getItem("ecoAnimales") || "[]"
+);
+
+let ocupado = false;
+let preguntaActual = null;
+let ultimaPregunta = -1;
+let respondida = false;
+
+// ==================================
+// ELEGIR ANIMAL
+// ==================================
+
+function elegirAnimal() {
+
+    let numero = Math.random() * 100;
+    let rareza;
+
+    if (numero < 5) {
+        rareza = "Legendario";
+    } else if (numero < 20) {
+        rareza = "Épico";
+    } else if (numero < 45) {
+        rareza = "Raro";
+    } else {
+        rareza = "Común";
+    }
+
+    let disponibles = animales.filter(
+        animal => animal.rareza === rareza
+    );
+
+    return disponibles[
+        Math.floor(Math.random() * disponibles.length)
+    ];
+}
+
+// ==================================
+// ABRIR CÁPSULAS
+// ==================================
+
+function abrir(cantidad) {
+
+    if (ocupado) return;
+
+    let precio = cantidad * 5;
+
+    if (monedas < precio) {
+        document.getElementById("estado").textContent =
+            "¡No tenés suficientes monedas! Respondé preguntas para conseguir más. 😅";
+        return;
+    }
+
+    ocupado = true;
+    monedas -= precio;
+
+    actualizarDatos();
+    guardarDatos();
+
+    let capsula = document.getElementById("capsula");
+    let resultado = document.getElementById("resultado");
+
+    resultado.style.display = "none";
+
+    capsula.textContent = "🎁";
+    capsula.classList.add("animar");
+
+    document.getElementById("estado").textContent =
+        "¡Abriendo las cápsulas...!";
+
+    document.getElementById("boton1").disabled = true;
+    document.getElementById("boton3").disabled = true;
+
+    setTimeout(function() {
+
+        capsula.classList.remove("animar");
+
+        let encontrados = [];
+        let nuevos = [];
+        let repetidos = [];
+
+        for (let i = 0; i < cantidad; i++) {
+
+            let animal = elegirAnimal();
+
+            encontrados.push(animal);
+
+            if (descubiertos.includes(animal.nombre)) {
+
+                repetidos.push(animal);
+                monedas += 2;
+
+            } else {
+
+                descubiertos.push(animal.nombre);
+                nuevos.push(animal);
+            }
+        }
+
+        // Mostrar el primer animal obtenido
+
+        let animal = encontrados[0];
+
+        document.getElementById("fotoAnimal").src =
+            animal.imagen;
+
+        document.getElementById("fotoAnimal").alt =
+            animal.nombre;
+
+        document.getElementById("nombreAnimal").textContent =
+            animal.nombre;
+
+        document.getElementById("rarezaAnimal").textContent =
+            animal.rareza;
+
+        document.getElementById("rarezaAnimal").className =
+            animal.rareza.toLowerCase();
+
+        document.getElementById("descripcionAnimal").textContent =
+            animal.descripcion;
+
+        document.getElementById("fuenteAnimal").href =
+            animal.fuente;
+
+        document.getElementById("tituloResultado").textContent =
+            nuevos.includes(animal)
+            ? "¡Nuevo descubrimiento!"
+            : "¡Te tocó este animal!";
+
+        document.getElementById("mensaje").textContent =
+            cantidad === 1
+            ? (repetidos.length > 0
+                ? "¡Lo tenías repetido! Ganaste 2 monedas."
+                : "¡Genial! Sumaste un animal nuevo a tu álbum.")
+            : "Abriste " + cantidad + " cápsulas. Nuevos: " +
+              nuevos.length + ". Repetidos: " + repetidos.length +
+              ". Ganaste " + (repetidos.length * 2) + " monedas extra.";
+
+        resultado.style.display = "block";
+
+        capsula.textContent = "✨";
+
+        document.getElementById("estado").textContent =
+            "¡Mirá lo que encontraste!";
+
+        guardarDatos();
+        mostrarColeccion();
+
+        document.getElementById("boton1").disabled = false;
+        document.getElementById("boton3").disabled = false;
+
+        ocupado = false;
+
+    }, 1300);
+}
+
+// ==================================
+// PREGUNTAS
+// ==================================
+
+function nuevaPregunta() {
+
+    let numero;
+
+    do {
+        numero = Math.floor(Math.random() * preguntas.length);
+    } while (numero === ultimaPregunta);
+
+    ultimaPregunta = numero;
+    preguntaActual = preguntas[numero];
+    respondida = false;
+
+    document.getElementById("pregunta").textContent =
+        preguntaActual.pregunta;
+
+    document.getElementById("resultadoPregunta").textContent = "";
+
+    document.getElementById("siguientePregunta").hidden = true;
+
+    let opciones = document.getElementById("opciones");
+
+    opciones.innerHTML = "";
+
+    preguntaActual.opciones.forEach((opcion, indice) => {
+
+        let boton = document.createElement("button");
+
+        boton.textContent = opcion;
+
+        boton.onclick = function() {
+            responder(indice, boton);
+        };
+
+        opciones.appendChild(boton);
+
+    });
+}
+
+// ==================================
+// RESPONDER PREGUNTAS
+// ==================================
+
+function responder(indice, botonElegido) {
+
+    if (respondida) return;
+
+    respondida = true;
+
+    let botones = document.querySelectorAll("#opciones button");
+
+    botones.forEach(boton => {
+        boton.disabled = true;
+    });
+
+    let resultado = document.getElementById("resultadoPregunta");
+
+    if (indice === preguntaActual.correcta) {
+
+        monedas += 5;
+
+        resultado.textContent =
+            "¡Correcto! Ganaste 5 monedas. 🪙";
+
+        resultado.style.color = "#278a43";
+
+        botonElegido.style.background = "#278a43";
+
+        guardarDatos();
+        actualizarDatos();
+
+    } else {
+
+        resultado.textContent =
+            "¡Incorrecto! No ganaste monedas. 😅";
+
+        resultado.style.color = "#c0392b";
+
+        botonElegido.style.background = "#c0392b";
+
+        botones[preguntaActual.correcta].style.background = "#278a43";
+
+    }
+
+    document.getElementById("siguientePregunta").hidden = false;
+
+}
+
+// ==================================
+// MOSTRAR ÁLBUM
+// ==================================
+
+function mostrarColeccion() {
+
+    let contenedor = document.getElementById("coleccion");
+
+    contenedor.innerHTML = "";
+
+    animales.forEach(animal => {
+
+        let encontrado = descubiertos.includes(animal.nombre);
+
+        let tarjeta = document.createElement("div");
+
+        tarjeta.className = encontrado
+            ? "tarjeta"
+            : "tarjeta bloqueado";
+
+        let foto = document.createElement("img");
+
+        foto.src = encontrado ? animal.imagen : "";
+        foto.alt = encontrado ? animal.nombre : "Animal sin descubrir";
+
+        let nombre = document.createElement("h3");
+
+        nombre.textContent = encontrado
+            ? animal.nombre
+            : "???";
+
+        let rareza = document.createElement("p");
+
+        rareza.textContent = encontrado
+            ? animal.rareza
+            : "Sin descubrir";
+
+        rareza.className = animal.rareza.toLowerCase();
+
+        tarjeta.appendChild(foto);
+        tarjeta.appendChild(nombre);
+        tarjeta.appendChild(rareza);
+
+        contenedor.appendChild(tarjeta);
+
+    });
+
+    actualizarDatos();
+}
+
+// ==================================
+// GUARDAR PROGRESO
+// ==================================
+
+function guardarDatos() {
+
+    localStorage.setItem("ecoMonedas", monedas);
+
+    localStorage.setItem(
+        "ecoAnimales",
+        JSON.stringify(descubiertos)
+    );
+
+}
+
+// ==================================
+// ACTUALIZAR CONTADORES
+// ==================================
+
+function actualizarDatos() {
+
+    document.getElementById("monedas").textContent = monedas;
+
+    document.getElementById("contador").textContent =
+        descubiertos.length;
+
+}
+
+// ==================================
+// INICIAR JUEGO
+// ==================================
+
+mostrarColeccion();
+actualizarDatos();
+nuevaPregunta();
+
+</script>
+
+</body>
+</html>
