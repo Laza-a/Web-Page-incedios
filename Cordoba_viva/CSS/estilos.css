@@ -507,3 +507,238 @@ a {
         font-size: 11px;
     }
 }
+
+
+/* ========================================
+   DISEÑO RESPONSIVE - CÓRDOBA VIVA
+   ======================================== */
+
+/* Evitar desbordamientos */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* TABLETS */
+@media screen and (max-width: 900px) {
+
+    .site-header {
+        flex-wrap: wrap;
+        gap: 15px;
+        padding: 15px 5%;
+    }
+
+    .site-header nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .article-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .split {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .feature-image {
+        width: 100%;
+        max-height: 400px;
+        object-fit: cover;
+    }
+
+    .campaign {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+}
+
+/* CELULARES */
+@media screen and (max-width: 600px) {
+
+    body {
+        font-size: 15px;
+    }
+
+    /* Encabezado */
+    .site-header {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .site-header .logo {
+        justify-content: center;
+    }
+
+    .site-header .logo img {
+        max-width: 55px;
+    }
+
+    .site-header nav {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .site-header nav a {
+        padding: 5px;
+    }
+
+    .institution-link img {
+        max-width: 65px;
+    }
+
+    /* Portada */
+    .hero {
+        min-height: 450px;
+        padding: 60px 20px;
+        text-align: center;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero h1 {
+        font-size: clamp(2rem, 9vw, 2.8rem);
+        line-height: 1.15;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    /* Secciones */
+    .section {
+        padding: 45px 20px;
+    }
+
+    .section h2 {
+        font-size: 1.8rem;
+    }
+
+    /* Buscador */
+    .search-row {
+        width: 100%;
+    }
+
+    .search-row input {
+        width: 100%;
+        min-width: 0;
+    }
+
+    /* Filtros */
+    .filters {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .filters button {
+        padding: 10px 14px;
+    }
+
+    /* Artículos */
+    .article-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .article-card {
+        width: 100%;
+    }
+
+    .article-card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+    }
+
+    /* Prevención */
+    .split {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .feature-image {
+        width: 100%;
+        max-height: 280px;
+    }
+
+    .tips {
+        padding-left: 20px;
+    }
+
+    /* Campañas */
+    .campaign {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .campaign .button {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Pie de página */
+    .site-footer {
+        padding: 35px 20px;
+        text-align: center;
+    }
+
+    .gacha-footer {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        padding: 15px;
+    }
+
+    .social-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+}
+
+/* CELULARES MUY PEQUEÑOS */
+@media screen and (max-width: 380px) {
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .section {
+        padding: 35px 15px;
+    }
+
+    .filters button {
+        font-size: 0.85rem;
+        padding: 8px 10px;
+    }
+
+    .gacha-footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
